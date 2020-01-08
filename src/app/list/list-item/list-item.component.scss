@@ -1,0 +1,12 @@
+.list-item {
+  margin: 10px;
+  font-size: 18px;
+  input {
+    &[type=checkbox] {
+      margin-right: 20px;
+    }
+  }
+  button {
+    margin-left: 80px;
+  }
+}
