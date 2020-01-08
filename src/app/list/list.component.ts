@@ -1,5 +1,5 @@
 import { Post } from './../interface/post';
-import { Component, OnInit, Input} from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-list',
@@ -8,6 +8,8 @@ import { Component, OnInit, Input} from '@angular/core';
 })
 export class ListComponent implements OnInit {
   @Input() list: Post[] = [];
+  @Output() updateList = new EventEmitter();
+  disable = false;
 
   constructor() { }
 

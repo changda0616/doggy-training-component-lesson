@@ -20,4 +20,12 @@ export class AppComponent implements OnInit {
       }
     );
   }
+  updateData(value: Post) {
+    this.list = this.list.map((item) => {
+      if (value.id === item.id) {
+        item = {...value};
+      }
+      return item;
+    });
+  }
 }

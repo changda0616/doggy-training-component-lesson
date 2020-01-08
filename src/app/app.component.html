@@ -2,4 +2,4 @@
 <div class="result">
   <div *ngFor="let item of list">{{item.author}}</div>
 </div>
-<app-list [list]="list"></app-list>
+<app-list [list]="list" (updateList)="updateData($event)"></app-list>

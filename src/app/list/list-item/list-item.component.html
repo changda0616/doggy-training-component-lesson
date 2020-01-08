@@ -1,6 +1,5 @@
 <div class="list-item">
-  <input type="checkbox" title="disable">
-  <input type="text" [(ngModel)]="data.author"/>
-  <button>Update</button>
+  <input type="checkbox" title="disable" (change)="changeChecked()" />
+  <input type="text" [(ngModel)]="data.author" [disabled]="disable" />
+  <button (click)="clickUpdate()">Update</button>
 </div>
-

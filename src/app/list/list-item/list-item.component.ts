@@ -1,5 +1,5 @@
 import { Post } from './../../interface/post';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-list-item',
@@ -7,8 +7,29 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./list-item.component.scss']
 })
 export class ListItemComponent implements OnInit {
-  @Input() data: Post;
-  constructor() { }
-  ngOnInit() {}
+  @Output() updateData = new EventEmitter<Post>();
+  get data() {
+    return this.originalData;
+  }
 
+  @Input('data')
+  set data(value: Post) {
+    this.originalData = {...value};
+  }
+
+  originalData: Post;
+
+  disable = true;
+  constructor() { }
+  ngOnInit() { }
+
+  changeChecked() {
+    this.disable = !this.disable;
+  }
+
+  clickUpdate() {
+    if (!this.disable) {
+      this.updateData.emit(this.originalData);
+    }
+  }
 }
